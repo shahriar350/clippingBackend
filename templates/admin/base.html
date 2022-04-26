@@ -1,0 +1,23 @@
+{% extends 'admin/base.html' %}
+
+{% block extrahead %}{{ block.super }}
+<style>
+    :root {
+        --primary: #1f1f1f;
+        --secondary: #000000;
+        --link-fg: #7c449b;
+        --link-selected-fg: #8f5bb2;
+        --body-fg: #333;
+        --body-bg: #fff;
+        --body-quiet-color: #666;
+        --body-loud-color: #000;
+        --darkened-bg: #f8f8f8; /* A bit darker than --body-bg */
+        --selected-bg: #e4e4e4; /* E.g. selected table cells */
+        --selected-row: #ffc;
+        --border-color: #9f9f9f;
+        --message-success-bg: #f5f5f5;
+
+    }
+
+</style>
+{% endblock %}
