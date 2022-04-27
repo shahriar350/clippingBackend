@@ -46,7 +46,6 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
-
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -143,3 +142,4 @@ EMAIL_HOST_USER = 'shahriar350@gmail.com'
 EMAIL_HOST_PASSWORD = 'cteghleknmntfmho'  # past the key or password app here
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+IPINFO_TOKEN = '2e12a3958beb50'

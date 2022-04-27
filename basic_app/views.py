@@ -1,12 +1,7 @@
 # Create your views here.
-import json
-from urllib.request import urlopen
 
-import django_quill.quill
 from django.conf import settings
-from django.core.mail import send_mail, EmailMessage
-from django.shortcuts import render
-from django.template import Context
+from django.core.mail import EmailMessage
 from django.template.loader import get_template
 from django.views.decorators.csrf import ensure_csrf_cookie
 from rest_framework import status
@@ -62,7 +57,6 @@ class ClientImageCRUDView(ModelViewSet):
     queryset = ClientImage.objects.all()
     # permission_classes = [IsAdminUser, IsAuthenticatedOrReadOnly]
     def perform_create(self, serializer):
-        print(self.request.geo)
         serializer.save()
         clientI = ClientUser.objects.prefetch_related('get_client_images').get(id=serializer.validated_data['client'].id)
         ctx = {
