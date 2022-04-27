@@ -54,10 +54,7 @@ class ClientUserCRUDView(ModelViewSet):
     serializer_class = ClientUserCRUDSerializer
     queryset = ClientUser.objects.all()
     def perform_create(self, serializer):
-        url = 'http://ipinfo.io/json'
-        response = urlopen(url)
-        data = json.load(response)
-        serializer.save(country=data['region'])
+        serializer.save(country=self.request.ipinfo.country_name)
 
 
 class ClientImageCRUDView(ModelViewSet):
@@ -65,6 +62,7 @@ class ClientImageCRUDView(ModelViewSet):
     queryset = ClientImage.objects.all()
     # permission_classes = [IsAdminUser, IsAuthenticatedOrReadOnly]
     def perform_create(self, serializer):
+        print(self.request.geo)
         serializer.save()
         clientI = ClientUser.objects.prefetch_related('get_client_images').get(id=serializer.validated_data['client'].id)
         ctx = {

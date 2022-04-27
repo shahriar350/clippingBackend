@@ -49,7 +49,7 @@ class ClientUser(models.Model):
     website_address = models.CharField(max_length=255, null=True, blank=True)
     job_type = models.ManyToManyField(JobType, related_name="get_clients")
     date_created = models.DateTimeField(auto_now_add=True)
-    country = models.CharField(max_length=255,default="unknown")
+    country = models.CharField(max_length=255,null=True,blank=True)
     completed = models.BooleanField(default=False)
 
     def __str__(self):

@@ -46,11 +46,13 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'ipinfo_django.middleware.IPinfo',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -134,11 +136,10 @@ CORS_ALLOWED_ORIGINS = (
 )
 BASE_URL = "http://127.0.0.1:8000"
 
-#gmail_send/settings.py
+# gmail_send/settings.py
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'shahriar350@gmail.com'
-EMAIL_HOST_PASSWORD = 'cteghleknmntfmho' #past the key or password app here
+EMAIL_HOST_PASSWORD = 'cteghleknmntfmho'  # past the key or password app here
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-
